@@ -10,10 +10,15 @@ website:
         text: Home
       - about.qmd
       - teaching.qmd
+    tools:
+      - icon: twitter
+        href: https://twitter.com/kinnaryhshah
+      - icon: linkedin
+        href: https://linkedin.com/in/kinnary-shah
 
 format:
   html:
-    theme: cosmo
+    theme: pulse
     css: styles.css
     toc: true
 

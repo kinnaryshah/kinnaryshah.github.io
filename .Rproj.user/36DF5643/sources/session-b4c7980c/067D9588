@@ -1,12 +1,12 @@
 {
-    "id": "5EC5640B",
-    "path": "~/Desktop/Research/kinnaryshah.github.io/teaching.qmd",
-    "project_path": "teaching.qmd",
+    "id": "067D9588",
+    "path": "~/Desktop/Research/kinnaryshah.github.io/about.qmd",
+    "project_path": "about.qmd",
     "type": "quarto_markdown",
     "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1687271838042.0,
+    "created": 1687273051551.0,
     "source_on_save": false,
     "relative_order": 4,
     "properties": {
@@ -16,16 +16,16 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "27:0",
         "cursorPosition": "0,0",
-        "scrollLine": "0",
-        "rmdVisualModeLocation": "22:0"
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1687272056,
+    "lastKnownWriteTime": 1687271863,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1687272056763,
+    "last_content_update": 1687271863,
     "read_only": false,
     "read_only_alternatives": []
 }

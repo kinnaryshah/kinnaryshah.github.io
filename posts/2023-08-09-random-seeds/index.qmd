@@ -1,0 +1,65 @@
+---
+title: "random seeds"
+description: "what I learned about random seeds while setting up a simulation"
+author:
+  - name: Kinnary H. Shah
+    url: https://kinnaryshah.github.io/
+    affiliation: Johns Hopkins Bloomberg School of Public Health
+date: 08-09-2023
+categories: [R, random seed]  
+citation: 
+  url: https://kinnaryshah.github.io/posts/2023-08-09-random-seeds/ 
+draft: false 
+---
+
+I have been working on a simulation for a spatial transcriptomics project that is in the works. During the process of debugging, I came across an issue with setting seeds that I wanted to explore further. Setting a seed initializes a value that is used by a pseudorandom number generator. 
+
+Comparing these two lines of code shows us how a seed functions:
+
+```{r}
+set.seed(10); runif(2); runif(2)
+set.seed(10); runif(4)
+```
+
+For this reason, we want to refrain from using the same random seed to generate variables that should not be correlated. For example,
+
+```{r}
+set.seed(1)
+alpha <- runif(50, 1, 2)
+
+set.seed(1)
+beta <- runif(25, 0.5, 4)
+beta <- append(beta, runif(25, 4, 8))
+
+plot(alpha, beta)
+```
+
+It is very clear when I write it in simple code like this, but I was not aware of this concern before. The same issue occurs when using selecting values from any distribution. 
+
+```{r}
+set.seed(100)
+vals1 <- rnorm(100, mean = 3, sd = 1)
+
+set.seed(100)
+vals2 <- rnorm(100, mean = 0.5, sd = 10)
+
+plot(vals1, vals2)
+```
+::: {.callout-tip}
+## Best Practices
+
+From now on, I will be implementing a better practice of setting the seed just once at the beginning.
+:::
+
+I was under the assumption that using the same seed to simulate, say, normal and uniform data would produce correlated data as well. I found that this is actually not the case and that this correlation does not occur when selecting values from different distributions.
+
+```{r}
+set.seed(9)
+normal <- rnorm(100)
+
+set.seed(9)
+uniform <- runif(100)
+
+plot(normal, uniform)
+```
+This finding is counterintuitive to me as I thought that generating values from the normal distribution was just transformation of randomly generated uniform values to the normal distribution. I'm reading about the Mersenne Twister in hopes of understanding this, but would love if anyone had additional insights on this!

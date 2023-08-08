@@ -1,0 +1,7 @@
+"0","set.seed(100)"
+"0","vals1 <- rnorm(100, mean = 3, sd = 1)"
+"0",""
+"0","set.seed(100)"
+"0","vals2 <- rnorm(100, mean = 0.5, sd = 10)"
+"0",""
+"0","plot(vals1, vals2)"

@@ -1,7 +1,0 @@
-"0","set.seed(9)"
-"0","normal <- rnorm(100)"
-"0",""
-"0","set.seed(9)"
-"0","uniform <- runif(100)"
-"0",""
-"0","plot(normal, uniform)"

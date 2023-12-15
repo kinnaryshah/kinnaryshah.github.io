@@ -93,3 +93,10 @@ cor(normal, uniform)
 This finding is counterintuitive to me as I thought that generating values from the normal distribution was just transformation of randomly generated uniform values to the normal distribution. I'm reading about the Mersenne Twister, a modern random number generator that is used in R and other languages [@mersenne], in hopes of understanding this. I would love to hear if anyone knows of an explanation for this.
 
 Big thanks to [Boyi Guo](https://boyiguo1.github.io) for his insights on this post!
+
+::: {.callout-note}
+## On Writing
+
+If you found this blog post helpful and would like to support my work, feel free to [buy me a coffee](https://www.buymeacoffee.com/kinnaryshah).
+:::
+

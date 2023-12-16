@@ -95,7 +95,7 @@ This finding is counterintuitive to me as I thought that generating values from 
 Big thanks to [Boyi Guo](https://boyiguo1.github.io) for his insights on this post!
 
 ::: {.callout-note}
-## On Writing
+## Coffee
 
 If you found this blog post helpful and would like to support my work, feel free to [buy me a coffee](https://www.buymeacoffee.com/kinnaryshah).
 :::

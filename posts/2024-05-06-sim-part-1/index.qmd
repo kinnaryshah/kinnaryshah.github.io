@@ -229,7 +229,7 @@ hist(gene_expr$p_values, breaks = 100, xlab = "p-value", main = "unadjusted p-va
 
 ```
 
-After generating the simulated gene counts data and creating differential expression, the next step is computing the differential expression test. For each gene, I used a two sample t-test where the first sample is the gene counts values for condition A and the second sample is the gene counts values for condition B. These tests result in 1,000 total p-values, which I explored with a p-value histogram. The histogram is anti-conservative, which is what I was hoping for.
+After generating the simulated gene counts data and creating differentially expressed genes, the next step is computing the differential expression test. For each gene, I used a two sample t-test where the first sample is the gene counts values for condition A and the second sample is the gene counts values for condition B. These tests result in 1,000 total p-values, which I explored with a p-value histogram. The histogram is anti-conservative, which is what I was hoping for.
 
 ```{r, echo=FALSE, eval=TRUE}
 # simulate gene expression data for 1000 genes and 20 samples

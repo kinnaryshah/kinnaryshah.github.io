@@ -219,7 +219,7 @@ div.csl-indent {
 
 
 
-<p>For one of my spatial transcriptomics research projects, I am working on simulating data to evaluate the sensitivity and specificity of our method. I wanted to document the process of understanding how to simulate counts data, as there are many learning opportunities along the way. This post is the first part, in which I will discuss understanding false discovery rate (FDR) in a basic differential expression analysis.</p>
+<p>For one of my spatial transcriptomics research projects, I am working on simulating data to evaluate the sensitivity and specificity of our method. I wanted to document the process simulating counts data, as there are many learning opportunities along the way. This post is the first part, in which I will discuss understanding false discovery rate (FDR) in a basic differential expression analysis.</p>
 <p>The overall framework of the simulation is as follows. First, I simulated gene expression data for 1,000 genes with 20 samples. Second, I manipulated the gene expression values for 100 genes in half the samples to be much higher. Third, I computed differential expression tests for each gene. Fourth, I explored the p-values and false discovery rates. After a lot of trial and error, this code is the final version of the simulation. I will explain each parameter and variable value choice in greater detail below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate gene expression data for 1000 genes and 20 samples</span></span>
@@ -293,7 +293,7 @@ div.csl-indent {
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(alpha_levels, fdr_percent_avg, <span class="at">type =</span> <span class="st">"l"</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"significance level"</span>, <span class="at">ylab =</span> <span class="st">"average FDR (%)"</span>,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"FDR vs. significance level"</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">10</span>))</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(alpha_levels, fdr_percent_avg <span class="sc">+</span> fdr_percent_sd, <span class="at">lty =</span> <span class="dv">2</span>)</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(alpha_levels, fdr_percent_avg <span class="sc">-</span> fdr_percent_sd, <span class="at">lty =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -319,7 +319,7 @@ div.csl-indent {
 <p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>After examining the p-value histogram, I used the Benjamini &amp; Hochberg procedure to correct for multiple hypothesis testing. I used the adjusted p-values to analyze the FDR at various significance levels. For example, consider a significance level of 0.05. The total number of positive tests is the number of adjusted p-values that are less than 0.05. The number of false positives is the number of non-differentially expressed genes with adjusted p-values that are less than 0.05. The FDR is equal to the number of false positives divided by the total number of positive tests. So, we are rejecting as many null hypotheses as possible while guaranteeing that mo more than 5% of those rejected null hypotheses are false positives. I repeated this FDR calculation for significance levels ranging from 0.001 to 0.1.</p>
+<p>After examining the p-value histogram, I used the Benjamini &amp; Hochberg procedure to correct for multiple hypothesis testing. I used the adjusted p-values to analyze the FDR at various significance levels. For example, consider a significance level of 0.05. The total number of positive tests is the number of adjusted p-values that are less than 0.05. The number of false positives is the number of non-differentially expressed genes with adjusted p-values that are less than 0.05. The FDR is equal to the number of false positives divided by the total number of positive tests. So, we are rejecting as many null hypotheses as possible while guaranteeing that no more than 5% of those rejected null hypotheses are false positives. I repeated this FDR calculation for significance levels ranging from 0.001 to 0.1.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>

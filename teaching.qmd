@@ -4,8 +4,8 @@ title: "Teaching"
 
 I have served as a teaching assistant for the following courses:
 
--   Lead TA Statistical Methods in Public Health I, III (2023-2024 school year)
+-   Lead TA Statistical Methods in Public Health (2023-2024, 2024-2025)
 
--   Multilevel Models (June 2023)
+-   Multilevel Models (June 2023, June 2024)
 
--   Statistical Methods in Public Health I-IV (2022-2023 school year)
+-   Statistical Methods in Public Health I-IV (2022-2023)

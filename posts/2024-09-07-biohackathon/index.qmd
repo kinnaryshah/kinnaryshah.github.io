@@ -11,7 +11,7 @@ draft: false
 bibliography: references.bib 
 ---
 
-I attended my first hackathon this past week at St. Jude Children's Research Hospital. The goal of the St. Jude KIDS24 (Knowledge in Data Science) [BioHackathon](https://www.stjude.org/research/why-st-jude/biohackathon.html) is to collaborative on a coding-intensive project that addresses a problem proposed by the research community. I was grateful to receive a full travel award to attend in-person, though virtual participation is also encouraged for those who cannot travel. I worked with three talented participants over three days on our project titled "Optimizing High-Performance Computing (HPC) Resource Allocation Through Statistical Analysis".
+I attended my first hackathon this past week at St. Jude Children's Research Hospital. The goal of the St. Jude KIDS24 (Knowledge in Data Science) [BioHackathon](https://www.stjude.org/research/why-st-jude/biohackathon.html) is to collaborative on a coding-intensive project that addresses a problem proposed by the research community. I was grateful to receive a full travel award to attend in-person, though virtual participation is also encouraged for those who cannot travel. I worked with three talented participants over three days on our project titled "Optimizing High-Performance Computing (HPC) Resource Allocation Through Statistical Analysis". Please note that I have not included any specific results as this dataset is not public information.
 
 # **Day 1**
 

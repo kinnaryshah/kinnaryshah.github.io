@@ -4,6 +4,6 @@ title: "Research"
 
 In collaboration with Dr. Stephanie Hicks and researchers at the Lieber Institute for Brain Development, I am currently working on spatial transcriptomics methods development and data analysis projects.
 
-I presented one of my projects at the BioConductor conference in August 2023. Feel free to watch it here (0:40-10:22)! If the embedded video isn't working, you can use this [link](https://www.youtube.com/watch?v=YA5H2XP6jjU&list=PLdl4u5ZRDMQRVvXBi29h7MDtRn-AQGlXS&index=3).
+I presented one of my projects at the BioConductor conference in August 2023. Feel free to watch it here (0:40-10:22)! If the embedded video isn't working, you can use this [link](https://www.youtube.com/watch?v=YA5H2XP6jjU&list=PLdl4u5ZRDMQRVvXBi29h7MDtRn-AQGlXS&index=3). We recently preprinted this project on [bioRxiv](https://www.biorxiv.org/content/10.1101/2024.11.04.621867v2).
 
 {{< video https://www.youtube.com/watch?v=YA5H2XP6jjU&list=PLdl4u5ZRDMQRVvXBi29h7MDtRn-AQGlXS&index=3 >}}

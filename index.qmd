@@ -7,6 +7,8 @@
 :::
 
 ::: {.column width="40%"}
-My name is Kinnary (kin-uh-ree) Shah, and I am working on my PhD at Johns Hopkins Bloomberg School of Public Health in the Department of Biostatistics. I received my Bachelor's degree in Biomathematics & Public Health from Rutgers University - New Brunswick, where I completed research projects in computational genetics and public policy. Outside of academics, I enjoy experimenting in the kitchen and hand building slab pottery.
+My name is Kinnary (kin-uh-ree) Shah, and I am working on my PhD at Johns Hopkins Bloomberg School of Public Health in the Department of Biostatistics. I received my Bachelor's degree in Biomathematics & Public Health from Rutgers University - New Brunswick, where I completed research projects in computational genetics and public policy. Outside of academics, I enjoy experimenting in the kitchen and taking pottery classes.
+
+Check out this feature from the SPH Communications office [here](https://publichealth.jhu.edu/departments/biostatistics/people/brain-mapping-and-bias)!
 :::
 :::

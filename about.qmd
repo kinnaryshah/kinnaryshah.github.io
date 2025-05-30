@@ -2,8 +2,14 @@
 title: "Research"
 ---
 
-In collaboration with Dr. Stephanie Hicks and researchers at the Lieber Institute for Brain Development, I am currently working on spatial transcriptomics methods development and data analysis projects.
+In collaboration with [Dr. Stephanie Hicks](https://www.stephaniehicks.com) and researchers at the Lieber Institute for Brain Development, I am currently working on spatial transcriptomics methods development and data analysis projects.
+
+I recently gave a talk about my project characterizing the dorsal anterior cingulate cortex by integrating spatially-resolved transcriptomics and single-nucleus RNA-sequencing data at the STATGEN conference in May 2025 - pictured below. This preprint will be available shortly!
+
+![](images/IMG_5072.jpg){width="100%"}
 
 I presented one of my projects at the BioConductor conference in August 2023. Feel free to watch it here (0:40-10:22)! If the embedded video isn't working, you can use this [link](https://www.youtube.com/watch?v=YA5H2XP6jjU&list=PLdl4u5ZRDMQRVvXBi29h7MDtRn-AQGlXS&index=3). We recently preprinted this project on [bioRxiv](https://www.biorxiv.org/content/10.1101/2024.11.04.621867v2).
 
 {{< video https://www.youtube.com/watch?v=YA5H2XP6jjU&list=PLdl4u5ZRDMQRVvXBi29h7MDtRn-AQGlXS&index=3 >}}
+
+Finally, if you'd like to read my first research project ever, click [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6553526/)! We used Oxford Nanpore sequencing to characterize adenine methylation in *Drosophila*.

@@ -12,4 +12,4 @@ I presented one of my projects at the BioConductor conference in August 2023. Fe
 
 {{< video https://www.youtube.com/watch?v=YA5H2XP6jjU&list=PLdl4u5ZRDMQRVvXBi29h7MDtRn-AQGlXS&index=3 >}}
 
-Finally, if you'd like to read my first research project ever, click [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6553526/)! We used Oxford Nanpore sequencing to characterize adenine methylation in *Drosophila*.
+Finally, if you'd like to read my first research project ever, click [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6553526/)! We used Oxford Nanopore sequencing to characterize adenine methylation in *Drosophila*.

@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Kinnary H. Shah">
+<meta name="dcterms.date" content="2025-06-20">
+<meta name="description" content="addressing the mean-variance relationship in SRT data">
 
-<title>Kinnary H. Shah - Blog</title>
+<title>Kinnary H. Shah - spoon</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +23,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -61,40 +81,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -104,7 +93,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Kinnary H. Shah</span>
     </a>
   </div>
@@ -115,19 +104,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
+    <a class="nav-link" href="../../about.html" rel="" target="">
  <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching.html" rel="" target="">
+    <a class="nav-link" href="../../teaching.html" rel="" target="">
  <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./posts.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../../posts.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -140,230 +129,143 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">spoon</h1>
+                  <div>
+        <div class="description">
+          addressing the mean-variance relationship in SRT data
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">spoon</div>
+                <div class="quarto-category">publication</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author"><a href="https://kinnaryshah.github.io/">Kinnary H. Shah</a> </p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Johns Hopkins Bloomberg School of Public Health
+            </p>
+        </div>
+      </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">June 20, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="FDR">FDR <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="genomics">genomics <span class="quarto-category-count">(1)</span></div><div class="category" data-category="hackathon">hackathon <span class="quarto-category-count">(1)</span></div><div class="category" data-category="oral exam">oral exam <span class="quarto-category-count">(1)</span></div><div class="category" data-category="publication">publication <span class="quarto-category-count">(1)</span></div><div class="category" data-category="random seed">random seed <span class="quarto-category-count">(1)</span></div><div class="category" data-category="spoon">spoon <span class="quarto-category-count">(1)</span></div><div class="category" data-category="studying">studying <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link active" data-scroll-target="#the-problem"><strong>The Problem</strong></a></li>
+  <li><a href="#our-solution" id="toc-our-solution" class="nav-link" data-scroll-target="#our-solution"><strong>Our Solution</strong></a></li>
+  <li><a href="#impact" id="toc-impact" class="nav-link" data-scroll-target="#impact"><strong>Impact</strong></a></li>
+  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software"><strong>Software</strong></a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Blog</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
+<p>I recently published my first paper as a PhD student! Along with a manuscript <span class="citation" data-cites="spoon">(<a href="#ref-spoon" role="doc-biblioref"><span>“Addressing the Mean-Variance Relationship in Spatially Resolved Transcriptomics Data with Spoon”</span> 2025</a>)</span>, we developed a freely available software package in R/Bioconductor <span class="citation" data-cites="bioc">(<a href="#ref-bioc" role="doc-biblioref"><span>“Spoon Bioconductor Package”</span> 2025</a>)</span>.</p>
+<p>I’m writing a short overview of the project as this blog post. Feel free to read the full paper for references and more detailed explanations! This work was funded by NIH grants and the CZI.</p>
+<section id="the-problem" class="level1">
+<h1><strong>The Problem</strong></h1>
+<p>The mean-variance relationship has been shown to bias differential gene expression analyses in bulk and single cell RNA-sequencing data, and there are many methods to correct for it. We wanted to explore if this bias exists in spatially-resolved transcriptomics (SRT) data as well, namely in spatially variable gene (SVG) detection. The first way we quantified this was with nnSVG, a method to detect SVGs. Briefly, nnSVG utilizes a nearest neighbor Gaussian process regression model per gene which can separate out spatial and nonspatial variance components of total variance. We showed that the mean and nonspatial component of variance were related in several 10x Genomics Visium datasets, and this trend was similar to what we would expect from other forms of sequencing data.</p>
+<p>We then extended our findings to other SVG detection methods which do not separate out the total variance into components. We developed the mean-rank relationship as a proxy for the mean-variance relationship. For all six methods, there was a clear relationship between the mean and rank in that genes with higher mean expression were more likely to be ranked as more spatially variable than genes with lower mean expression. We showed similar findings with simulated data as well.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why Do We Care?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You may be thinking, so what if highly expressed genes are more likely to be called SVGs?</p>
+<p>We may use SVG detection tools in diseased tissue or tissue from cancerous tumors, hoping to find genes that vary in a spatial manner. If we use methods that bias against lowly expressed genes, we may miss some important ones just because of their level of expression. In fact, we showed this concept with gene set enrichment analysis (GSEA) toward the end of the paper.</p>
+</div>
+</div>
+</section>
+<section id="our-solution" class="level1">
+<h1><strong>Our Solution</strong></h1>
+<p>We were inspired by the limma-voom method for RNA-sequencing data. Briefly, we leveraged empirical Bayes techniques to estimate observation- and gene-level weights. Instead of linear regression, we used Gaussian process regression to model the SRT data to calculate the precision weights. We then leveraged the Delta method to rescale the data and covariates by these weights, and these rescaled matrices were used as input into SVG detection methods.</p>
+</section>
+<section id="impact" class="level1">
+<h1><strong>Impact</strong></h1>
+<p>We showed that using our method reduced the impact of the mean-variance relationship on SVG detection in simulated data. Extending this finding to real biological data, we used GSEA on unweighted and weighted SVG sets from four cancer datasets. We found that the weighted SVG sets showed stronger biological relevance to the cancer of the dataset compared to the unweighted SVG sets!</p>
+</section>
+<section id="software" class="level1">
+<h1><strong>Software</strong></h1>
+<p>We added a step-by-step vignette and tutorial to the R/Bioconductor package to make it easier for the community to use. It interfaces with the SpatialExperiment class, and it can also accept matrices as input.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Naming “spoon”
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The name “spoon” is a portmanteau made by combining the method “limma-voom” and “spatial”.</p>
+</div>
+</div>
+<p>Thanks for reading and feel free to try out our method!</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Coffee
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you found this blog post helpful and would like to support my work, feel free to <a href="https://www.buymeacoffee.com/kinnaryshah">buy me a coffee</a>.</p>
+</div>
+</div>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="spoon,publication" data-listing-date-sort="1750402800000" data-listing-file-modified-sort="1750441502229" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
-<div class="thumbnail">
-<p><a href="./posts/2025-06-20-spoon/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2025-06-20-spoon/index.html">
-<h3 class="no-anchor listing-title">
-spoon
-</h3>
-<div class="listing-subtitle">
 
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('spoon'); return false;">
-spoon
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('publication'); return false;">
-publication
-</div>
-</div>
-<a href="./posts/2025-06-20-spoon/index.html">
-<div class="listing-description">
-<p>addressing the mean-variance relationship in SRT data</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2025-06-20-spoon/index.html">
-<div class="listing-date">
-Jun 20, 2025
-</div>
-<div class="listing-author">
-Kinnary H. Shah
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="hackathon" data-listing-date-sort="1725778800000" data-listing-file-modified-sort="1725824316705" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
-<div class="thumbnail">
-<p><a href="./posts/2024-09-07-biohackathon/index.html"> <p class="card-img-top"><img src="posts/2024-09-07-biohackathon/IMG_4496.jpg"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2024-09-07-biohackathon/index.html">
-<h3 class="no-anchor listing-title">
-biohackathon
-</h3>
-<div class="listing-subtitle">
 
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('hackathon'); return false;">
-hackathon
-</div>
-</div>
-<a href="./posts/2024-09-07-biohackathon/index.html">
-<div class="listing-description">
-<p>detailing my first hackathon experience</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2024-09-07-biohackathon/index.html">
-<div class="listing-date">
-Sep 8, 2024
-</div>
-<div class="listing-author">
-Kinnary H. Shah
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="FDR,genomics" data-listing-date-sort="1714978800000" data-listing-file-modified-sort="1715013140050" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15">
-<div class="thumbnail">
-<p><a href="./posts/2024-05-06-sim-part-1/index.html"> <p class="card-img-top"><img src="posts/2024-05-06-sim-part-1/index_files/figure-html/unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2024-05-06-sim-part-1/index.html">
-<h3 class="no-anchor listing-title">
-simulations part 1
-</h3>
-<div class="listing-subtitle">
+</section>
 
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-spoon" class="csl-entry" role="listitem">
+<span>“Addressing the Mean-Variance Relationship in Spatially Resolved Transcriptomics Data with Spoon.”</span> 2025. <a href="https://doi.org/10.1093/biostatistics/kxaf012">https://doi.org/10.1093/biostatistics/kxaf012</a>.
 </div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('FDR'); return false;">
-FDR
+<div id="ref-bioc" class="csl-entry" role="listitem">
+<span>“Spoon Bioconductor Package.”</span> 2025. <a href="https://bioconductor.org/packages/release/bioc/html/spoon.html">https://bioconductor.org/packages/release/bioc/html/spoon.html</a>.
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('genomics'); return false;">
-genomics
-</div>
-</div>
-<a href="./posts/2024-05-06-sim-part-1/index.html">
-<div class="listing-description">
-<p>understanding FDR in a basic differential expression analysis</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2024-05-06-sim-part-1/index.html">
-<div class="listing-date">
-May 6, 2024
-</div>
-<div class="listing-author">
-Kinnary H. Shah
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="oral exam,studying" data-listing-date-sort="1702627200000" data-listing-file-modified-sort="1725823056685" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
-<div class="thumbnail">
-<p><a href="./posts/2023-12-15-oral-exam/index.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2023-12-15-oral-exam/index.html">
-<h3 class="no-anchor listing-title">
-preliminary oral exam
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('oral exam'); return false;">
-oral exam
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('studying'); return false;">
-studying
-</div>
-</div>
-<a href="./posts/2023-12-15-oral-exam/index.html">
-<div class="listing-description">
-<p>how I prepared for (and passed!) my preliminary oral exam</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2023-12-15-oral-exam/index.html">
-<div class="listing-date">
-Dec 15, 2023
-</div>
-<div class="listing-author">
-Kinnary H. Shah
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="R,random seed" data-listing-date-sort="1691564400000" data-listing-file-modified-sort="1702690317909" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="./posts/2023-08-09-random-seeds/index.html"> <p class="card-img-top"><img src="posts/2023-08-09-random-seeds/index_files/figure-html/unnamed-chunk-2-1.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/2023-08-09-random-seeds/index.html">
-<h3 class="no-anchor listing-title">
-random seeds
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('random seed'); return false;">
-random seed
-</div>
-</div>
-<a href="./posts/2023-08-09-random-seeds/index.html">
-<div class="listing-description">
-<p>what I learned about random seeds while setting up a simulation</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/2023-08-09-random-seeds/index.html">
-<div class="listing-date">
-Aug 9, 2023
-</div>
-<div class="listing-author">
-Kinnary H. Shah
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

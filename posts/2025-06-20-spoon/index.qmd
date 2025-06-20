@@ -1,0 +1,57 @@
+---
+title: "spoon"
+description: "addressing the mean-variance relationship in SRT data"
+author:
+  - name: Kinnary H. Shah
+    url: https://kinnaryshah.github.io/
+    affiliation: Johns Hopkins Bloomberg School of Public Health
+date: 06-20-2025
+categories: [spoon, publication]  
+draft: false 
+bibliography: references.bib 
+---
+
+I recently published my first paper as a PhD student! Along with a manuscript [@spoon], we developed a freely available software package in R/Bioconductor [@bioc]. 
+
+I'm writing a short overview of the project as this blog post. Feel free to read the full paper for references and more detailed explanations! This work was funded by NIH grants and the CZI.
+
+# **The Problem**
+
+The mean-variance relationship has been shown to bias differential gene expression analyses in bulk and single cell RNA-sequencing data, and there are many methods to correct for it. We wanted to explore if this bias exists in spatially-resolved transcriptomics (SRT) data as well, namely in spatially variable gene (SVG) detection. The first way we quantified this was with nnSVG, a method to detect SVGs. Briefly, nnSVG utilizes a nearest neighbor Gaussian process regression model per gene which can separate out spatial and nonspatial variance components of total variance. We showed that the mean and nonspatial component of variance were related in several 10x Genomics Visium datasets, and this trend was similar to what we would expect from other forms of sequencing data.
+
+We then extended our findings to other SVG detection methods which do not separate out the total variance into components. We developed the mean-rank relationship as a proxy for the mean-variance relationship. For all six methods, there was a clear relationship between the mean and rank in that genes with higher mean expression were more likely to be ranked as more spatially variable than genes with lower mean expression. We showed similar findings with simulated data as well.
+
+::: callout-note
+## Why Do We Care?
+
+You may be thinking, so what if highly expressed genes are more likely to be called SVGs? 
+
+We may use SVG detection tools in diseased tissue or tissue from cancerous tumors, hoping to find genes that vary in a spatial manner. If we use methods that bias against lowly expressed genes, we may miss some important ones just because of their level of expression. In fact, we showed this concept with gene set enrichment analysis (GSEA) toward the end of the paper.
+:::
+
+# **Our Solution**
+
+We were inspired by the limma-voom method for RNA-sequencing data. Briefly, we leveraged empirical Bayes techniques to estimate observation- and gene-level weights. Instead of linear regression, we used Gaussian process regression to model the SRT data to calculate the precision weights. We then leveraged the Delta method to rescale the data and covariates by these weights, and these rescaled matrices were used as input into SVG detection methods.
+
+# **Impact**
+
+We showed that using our method reduced the impact of the mean-variance relationship on SVG detection in simulated data. Extending this finding to real biological data, we used GSEA on unweighted and weighted SVG sets from four cancer datasets. We found that the weighted SVG sets showed stronger biological relevance to the cancer of the dataset compared to the unweighted SVG sets!
+
+# **Software**
+
+We added a step-by-step vignette and tutorial to the R/Bioconductor package to make it easier for the community to use. It interfaces with the SpatialExperiment class, and it can also accept matrices as input.
+
+::: callout-note
+## Naming "spoon"
+
+The name "spoon" is a portmanteau made by combining the method "limma-voom" and "spatial".
+
+:::
+
+Thanks for reading and feel free to try out our method!
+
+::: callout-note
+## Coffee
+
+If you found this blog post helpful and would like to support my work, feel free to [buy me a coffee](https://www.buymeacoffee.com/kinnaryshah).
+:::

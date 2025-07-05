@@ -2,7 +2,7 @@
 title: "random seeds"
 description: "what I learned about random seeds while setting up a simulation"
 author:
-  - name: Kinnary H. Shah
+  - name: Kinnary Shah
     url: https://kinnaryshah.github.io/
     affiliation: Johns Hopkins Bloomberg School of Public Health
 date: 08-09-2023
@@ -13,7 +13,7 @@ bibliography: references.bib
 
 TLDR: I explain why researchers should not use the same random seed to generate variables that should not be correlated.
 
-I have been working on a simulation for a spatial transcriptomics project. During the process of debugging the simulation, I came across an issue with setting seeds that I wanted to explore further. Setting a seed initializes a value that is used by a pseudorandom number generator. 
+I have been working on a simulation for a spatial transcriptomics project. During the process of debugging the simulation, I came across an issue with setting seeds that I wanted to explore further. Setting a seed initializes a value that is used by a pseudorandom number generator.
 
 Comparing these two lines of code shows us how a seed functions:
 
@@ -38,7 +38,7 @@ cor(alpha[1:25], beta[1:25])
 cor(alpha[26:50], beta[26:50])
 ```
 
-It is very clear when I write it in simple code like this, but I was not aware of this concern before. The same issue occurs when selecting values from any distribution. 
+It is very clear when I write it in simple code like this, but I was not aware of this concern before. The same issue occurs when selecting values from any distribution.
 
 ```{r}
 set.seed(100)
@@ -70,10 +70,10 @@ for(i in c(1:50)){
 correlation_list
 ```
 
-::: {.callout-tip}
+::: callout-tip
 ## Best Practices
 
-From now on, I will be implementing a better practice of setting the seed just once at the beginning [@simstudies]. 
+From now on, I will be implementing a better practice of setting the seed just once at the beginning [@simstudies].
 :::
 
 I was under the assumption that using the same seed to simulate, say, normal and uniform data would produce correlated data as well. I found that this is actually not the case and that this correlation does not occur when selecting values from different distributions.
@@ -94,9 +94,8 @@ This finding is counterintuitive to me as I thought that generating values from 
 
 Big thanks to [Boyi Guo](https://boyiguo1.github.io) for his insights on this post!
 
-::: {.callout-note}
+::: callout-note
 ## Coffee
 
 If you found this blog post helpful and would like to support my work, feel free to [buy me a coffee](https://www.buymeacoffee.com/kinnaryshah).
 :::
-

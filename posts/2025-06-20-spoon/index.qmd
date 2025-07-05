@@ -2,7 +2,7 @@
 title: "spoon"
 description: "addressing the mean-variance relationship in SRT data"
 author:
-  - name: Kinnary H. Shah
+  - name: Kinnary Shah
     url: https://kinnaryshah.github.io/
     affiliation: Johns Hopkins Bloomberg School of Public Health
 date: 06-20-2025

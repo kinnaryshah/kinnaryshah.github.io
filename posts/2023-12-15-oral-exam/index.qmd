@@ -2,7 +2,7 @@
 title: "preliminary oral exam"
 description: "how I prepared for (and passed!) my preliminary oral exam"
 author:
-  - name: Kinnary H. Shah
+  - name: Kinnary Shah
     url: https://kinnaryshah.github.io/
     affiliation: Johns Hopkins Bloomberg School of Public Health
 date: 12-15-2023
@@ -17,7 +17,7 @@ One of the biggest challenges was actually scheduling the exam, which our very k
 
 Once I had the exam scheduled, the next steps were writing up a proposal and preparing for possible questions. The proposal is due one month before your oral exam, so I spent about one hour per weekday writing to make sure I could complete it in time. I usually chose the 8am-9am time slot to focus on writing before I started getting distracted by Slack and email notifications. My proposal ended up being about 50 pages in LaTeX with an introduction, two chapters, and a conclusion. The chapters were similar to in-progress research manuscripts for each of the two projects I was working on. About two weeks before my proposal was due, I asked my advisor to read it over and give me some comments. After addressing her comments, I had a completed proposal. I also had to create a 15 minute slides-based presentation for my oral exam based on my proposal. Since my proposal was already written, I found this pretty easy to put together since I already had the language and figures ready.
 
-::: {.callout-tip}
+::: callout-tip
 ## On Writing
 
 Some days, "writing" was really staring at my computer for 30 minutes and writing down a few sentences. Other days, it was writing a whole two pages without a break. I think forcing myself to sit with my thoughts each day made a big difference compared to just writing when inspiration struck.
@@ -29,15 +29,15 @@ I spent about two months writing my proposal between mid-September to mid-Novemb
 
 After sending out my proposal and slides to my committee, I asked each member to meet individually for about thirty minutes. I would highly recommend these meetings to ease nerves and to target specific areas for the final preparation process. I gave a five minute overview of my proposal to start each meeting, then they asked me questions and suggested some topics to focus on for their section of questions. I appreciated that all of my committee members were so encouraging and reassuring during these meetings.
 
-My last preparation method was doing a practice run with a couple of my peers about 10 days before my exam. I took them through my 15 minute presentation and then answered their questions. I found this practice very reassuring since I could answer a lot of their questions, showing me that I was more prepared than I realized. I would recommend this to others preparing for their oral exams because it is harder to explain a concept orally compared to writing it down. 
+My last preparation method was doing a practice run with a couple of my peers about 10 days before my exam. I took them through my 15 minute presentation and then answered their questions. I found this practice very reassuring since I could answer a lot of their questions, showing me that I was more prepared than I realized. I would recommend this to others preparing for their oral exams because it is harder to explain a concept orally compared to writing it down.
 
 Up until this point, my preparation had gone pretty smoothly. I definitely felt stressed out, but I was feeling ready to get it over with. Unfortunately, I ended up having COVID-19 the week before my exam! I had to spend most of my time resting and was not able to think about the exam at all. My exam ended up being over Zoom instead of in-person since I was still sick. In hindsight, I'm happy that I was a few days ahead of my preparation schedule and could take the time to rest.
 
 Nevertheless, the oral exam went pretty smoothly. I started out with my presentation. Then, each member had 10-15 minutes to ask me a series of questions. These often related to the questions or topics we discussed in our individual meetings. I also had to answer a few basic biostatistics questions from my first year coursework. There were a few questions that I did not know or could not remember the answers to, so I just told them this and moved on to the next question. After the last committee member asked their questions, I left the room for about 10 minutes so they could deliberate. When I returned, they announced that I had passed! They also gave me a couple of suggestions for my research moving forward.
 
-Perhaps a trite phrase, but my main advice would be to believe in yourself. Your advisor would not let you go into this process without being ready for it and you have more knowledge than you realize. 
+Perhaps a trite phrase, but my main advice would be to believe in yourself. Your advisor would not let you go into this process without being ready for it and you have more knowledge than you realize.
 
-::: {.callout-note}
+::: callout-note
 ## Coffee
 
 If you found this blog post helpful and would like to support my work, feel free to [buy me a coffee](https://www.buymeacoffee.com/kinnaryshah).

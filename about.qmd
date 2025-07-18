@@ -4,11 +4,11 @@ title: "Research"
 
 In collaboration with [Dr. Stephanie Hicks](https://www.stephaniehicks.com) and researchers at the Lieber Institute for Brain Development, I am currently working on spatial transcriptomics methods development and data analysis projects.
 
-I recently gave a talk about my project characterizing the dorsal anterior cingulate cortex by integrating spatially-resolved transcriptomics and single-nucleus RNA-sequencing data at the STATGEN conference in May 2025 - pictured below. This preprint will be available shortly!
+I recently gave a talk about my project characterizing the dorsal anterior cingulate cortex by integrating spatially-resolved transcriptomics and single-nucleus RNA-sequencing data at the STATGEN conference in May 2025 - pictured below. We recently uploaded this manuscript to [*bioRxiv*](https://www.biorxiv.org/content/10.1101/2025.07.14.664821v1)!
 
 ![](images/IMG_5072.jpg){width="100%"}
 
-I presented one of my projects at the BioConductor conference in August 2023. Feel free to watch it here (0:40-10:22)! If the embedded video isn't working, you can use this [link](https://www.youtube.com/watch?v=YA5H2XP6jjU&list=PLdl4u5ZRDMQRVvXBi29h7MDtRn-AQGlXS&index=3). We recently published this manuscript in [*Biostatistics*](https://doi.org/10.1093/biostatistics/kxaf012).
+I presented one of my projects at the BioConductor conference in August 2023. Feel free to watch it here (0:40-10:22)! If the embedded video isn't working, you can use this [link](https://www.youtube.com/watch?v=YA5H2XP6jjU&list=PLdl4u5ZRDMQRVvXBi29h7MDtRn-AQGlXS&index=3). We recently published this work in [*Biostatistics*](https://doi.org/10.1093/biostatistics/kxaf012).
 
 {{< video https://www.youtube.com/watch?v=YA5H2XP6jjU&list=PLdl4u5ZRDMQRVvXBi29h7MDtRn-AQGlXS&index=3 >}}
 

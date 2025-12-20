@@ -11,9 +11,12 @@ draft: false
 bibliography: references.bib 
 ---
 
-I recently published my first paper as a PhD student! Along with a manuscript [@spoon], we developed a freely available software package in R/Bioconductor [@bioc]. 
+I recently published my first paper as a PhD student! Along with a manuscript [@spoon], we developed a freely available software package in R/Bioconductor [@bioc].
 
 I'm writing a short overview of the project as this blog post. Feel free to read the full paper for references and more detailed explanations! This work was funded by NIH grants and the CZI.
+
+![initial brainstorming](hex.png){width="20%"}
+Shoutout to my sister for designing this hex sticker!
 
 # **The Problem**
 
@@ -24,7 +27,7 @@ We then extended our findings to other SVG detection methods which do not separa
 ::: callout-note
 ## Why Do We Care?
 
-You may be thinking, so what if highly expressed genes are more likely to be called SVGs? 
+You may be thinking, so what if highly expressed genes are more likely to be called SVGs?
 
 We may use SVG detection tools in diseased tissue or tissue from cancerous tumors, hoping to find genes that vary in a spatial manner. If we use methods that bias against lowly expressed genes, we may miss some important ones just because of their level of expression. In fact, we showed this concept with gene set enrichment analysis (GSEA) toward the end of the paper.
 :::
@@ -45,7 +48,6 @@ We added a step-by-step vignette and tutorial to the R/Bioconductor package to m
 ## Naming "spoon"
 
 The name "spoon" is a portmanteau made by combining the method "limma-voom" and "spatial".
-
 :::
 
 Thanks for reading and feel free to try out our method!

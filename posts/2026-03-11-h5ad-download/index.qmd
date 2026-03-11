@@ -1,0 +1,84 @@
+---
+title: "h5ad files"
+description: "current issues downloading .h5ad files into R"
+author:
+  - name: Kinnary Shah
+    url: https://kinnaryshah.github.io/
+    affiliation: Johns Hopkins Bloomberg School of Public Health
+date: 03-11-2026
+categories: [genomics, R]  
+draft: false 
+---
+
+# **Problems with downloading Python anndata objects into R**
+
+In genomics research, a common problem is that many computational tools and statistical methods are implemented in either R or Python. R and Python have unique strengths and weaknesses, and individual researchers have their own preferences. I have experience in both R and Python, although I mostly use R in graduate school, but I still take a deep breath whenever I need to use Python tools to analyze my data because of the conversion between file types. The problem is that the data storage classes (R: Seurat, SpatialExperiment; Python: anndata) do not "talk" to each other.
+
+Researchers have developed methods to download .h5ad files, commonly used in Python, into R, but most of them do not reliably work. For instance, I tried to use zellkonverter a couple years ago and found that I could only load in the log-normalized counts matrices into R. For my research project, I needed to access the raw counts data. It took me days of troubleshooting to figure out that the raw counts data did exist in the .h5ad file, but they were somehow overwritten when I read the object into R. My workaround, solved by scouring GitHub issues, was to load the .h5ad files into Python, save the raw counts matrices as .csv files, load the .csv files into R, and overwrite the raw counts matrix section in the R SpatialExperiment object. I have also used SeuratDisk and the R anndata package with very limited success.
+
+Specifically for spatial transcriptomics data, the existing conversion methods do not save the actual images of the tissues. Researchers have to process the spatial image data from Python and read it into R separately from converting the rest of the object.
+
+There are many GitHub issue threads about these problems, but as far as I can tell, it has not been elegantly solved yet.
+
+::: callout-note
+## Future updates
+
+Hopefully, I can update this post in the future if I happen to find a reliable solution!
+:::
+
+
+# **Working Solution**
+
+For now, I've found that this solution works for just the gene expression data, metadata, and spatial coordinates.
+
+```{r, eval=FALSE}
+
+# inspired by https://github.com/satijalab/seurat/issues/3414
+# and https://github.com/theislab/zellkonverter/issues/34
+
+library(SCP)
+library(reticulate)
+library(Matrix)
+library(SeuratObject)
+library(Seurat)
+library(SpatialExperiment)
+
+# create a conda environment to install scanpy
+reticulate::install_miniconda()
+reticulate::conda_create("scanpy-env", python_version = "3.10")
+reticulate::conda_install("scanpy-env", c("scanpy", "python-igraph", "leidenalg"), channel = "conda-forge")
+
+reticulate::use_condaenv("scanpy-env", required = TRUE)
+sc <- reticulate::import("scanpy")
+
+# read in the file
+file_name <- "example.h5ad"
+adata <- sc$read_h5ad(file_name)
+
+# extract pieces
+feat <- rownames(adata$var)
+dgC <- as(adata$X, "CsparseMatrix")
+gex <- t(dgC)
+md <- adata$obs
+rownames(gex) <- feat
+
+# create SeuratObject
+x <- CreateSeuratObject(gex, meta.data=md)
+
+# create SpatialExperiment object
+coords <- adata$obsm[["spatial"]]
+colnames(coords) <- c("x","y")
+spe <- SpatialExperiment(
+    assay = gex, 
+    colData = md, 
+    spatialCoords = coords)
+
+```
+
+Thanks for reading and please let me know if you figure out a reliable solution to this problem!
+
+::: callout-note
+## Coffee
+
+If you found this blog post helpful and would like to support my work, feel free to [buy me a coffee](https://www.buymeacoffee.com/kinnaryshah).
+:::

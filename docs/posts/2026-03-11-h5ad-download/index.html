@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Kinnary Shah">
+<meta name="dcterms.date" content="2026-03-11">
+<meta name="description" content="current issues downloading .h5ad files into R">
 
-<title>Blog – Kinnary Shah</title>
+<title>h5ad files – Kinnary Shah</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +23,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b6254045a21d07dd46cfe160e8c2e3db.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-b6254045a21d07dd46cfe160e8c2e3db.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +103,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Kinnary Shah</span>
     </a>
   </div>
@@ -149,19 +126,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching.html"> 
+    <a class="nav-link" href="../../teaching.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./posts.html" aria-current="page"> 
+    <a class="nav-link" href="../../posts.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -174,258 +151,153 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">h5ad files</h1>
+                  <div>
+        <div class="description">
+          current issues downloading .h5ad files into R
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">genomics</div>
+                <div class="quarto-category">R</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author"><a href="https://kinnaryshah.github.io/">Kinnary Shah</a> </p>
+    </div>
+    <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Johns Hopkins Bloomberg School of Public Health
+            </p>
+        </div>
+    </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 11, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="RkRS">FDR <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Z2Vub21pY3M=">genomics <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aGFja2F0aG9u">hackathon <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b3JhbCUyMGV4YW0=">oral exam <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHVibGljYXRpb24=">publication <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmFuZG9tJTIwc2VlZA==">random seed <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3Bvb24=">spoon <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c3R1ZHlpbmc=">studying <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#problems-with-downloading-python-anndata-objects-into-r" id="toc-problems-with-downloading-python-anndata-objects-into-r" class="nav-link active" data-scroll-target="#problems-with-downloading-python-anndata-objects-into-r"><strong>Problems with downloading Python anndata objects into R</strong></a></li>
+  <li><a href="#working-solution" id="toc-working-solution" class="nav-link" data-scroll-target="#working-solution"><strong>Working Solution</strong></a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Blog</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<section id="problems-with-downloading-python-anndata-objects-into-r" class="level1">
+<h1><strong>Problems with downloading Python anndata objects into R</strong></h1>
+<p>In genomics research, a common problem is that many computational tools and statistical methods are implemented in either R or Python. R and Python have unique strengths and weaknesses, and individual researchers have their own preferences. I have experience in both R and Python, although I mostly use R in graduate school, but I still take a deep breath whenever I need to use Python tools to analyze my data because of the conversion between file types. The problem is that the data storage classes (R: Seurat, SpatialExperiment; Python: anndata) do not “talk” to each other.</p>
+<p>Researchers have developed methods to download .h5ad files, commonly used in Python, into R, but most of them do not reliably work. For instance, I tried to use zellkonverter a couple years ago and found that I could only load in the log-normalized counts matrices into R. For my research project, I needed to access the raw counts data. It took me days of troubleshooting to figure out that the raw counts data did exist in the .h5ad file, but they were somehow overwritten when I read the object into R. My workaround, solved by scouring GitHub issues, was to load the .h5ad files into Python, save the raw counts matrices as .csv files, load the .csv files into R, and overwrite the raw counts matrix section in the R SpatialExperiment object. I have also used SeuratDisk and the R anndata package with very limited success.</p>
+<p>Specifically for spatial transcriptomics data, the existing conversion methods do not save the actual images of the tissues. Researchers have to process the spatial image data from Python and read it into R separately from converting the rest of the object.</p>
+<p>There are many GitHub issue threads about these problems, but as far as I can tell, it has not been elegantly solved yet.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Future updates
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Hopefully, I can update this post in the future if I happen to find a reliable solution!</p>
+</div>
+</div>
+</section>
+<section id="working-solution" class="level1">
+<h1><strong>Working Solution</strong></h1>
+<p>For now, I’ve found that this solution works for just the gene expression data, metadata, and spatial coordinates.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inspired by https://github.com/satijalab/seurat/issues/3414</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and https://github.com/theislab/zellkonverter/issues/34</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SCP)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Matrix)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SeuratObject)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Seurat)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SpatialExperiment)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># create a conda environment to install scanpy</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">install_miniconda</span>()</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">conda_create</span>(<span class="st">"scanpy-env"</span>, <span class="at">python_version =</span> <span class="st">"3.10"</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">conda_install</span>(<span class="st">"scanpy-env"</span>, <span class="fu">c</span>(<span class="st">"scanpy"</span>, <span class="st">"python-igraph"</span>, <span class="st">"leidenalg"</span>), <span class="at">channel =</span> <span class="st">"conda-forge"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">use_condaenv</span>(<span class="st">"scanpy-env"</span>, <span class="at">required =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>sc <span class="ot">&lt;-</span> reticulate<span class="sc">::</span><span class="fu">import</span>(<span class="st">"scanpy"</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># read in the file</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>file_name <span class="ot">&lt;-</span> <span class="st">"example.h5ad"</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>adata <span class="ot">&lt;-</span> sc<span class="sc">$</span><span class="fu">read_h5ad</span>(file_name)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># extract pieces</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>feat <span class="ot">&lt;-</span> <span class="fu">rownames</span>(adata<span class="sc">$</span>var)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>dgC <span class="ot">&lt;-</span> <span class="fu">as</span>(adata<span class="sc">$</span>X, <span class="st">"CsparseMatrix"</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>gex <span class="ot">&lt;-</span> <span class="fu">t</span>(dgC)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>md <span class="ot">&lt;-</span> adata<span class="sc">$</span>obs</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(gex) <span class="ot">&lt;-</span> feat</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># create SeuratObject</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">CreateSeuratObject</span>(gex, <span class="at">meta.data=</span>md)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># create SpatialExperiment object</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>coords <span class="ot">&lt;-</span> adata<span class="sc">$</span>obsm[[<span class="st">"spatial"</span>]]</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(coords) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"x"</span>,<span class="st">"y"</span>)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>spe <span class="ot">&lt;-</span> <span class="fu">SpatialExperiment</span>(</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">assay =</span> gex, </span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">colData =</span> md, </span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">spatialCoords =</span> coords)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Thanks for reading and please let me know if you figure out a reliable solution to this problem!</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Coffee
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you found this blog post helpful and would like to support my work, feel free to <a href="https://www.buymeacoffee.com/kinnaryshah">buy me a coffee</a>.</p>
+</div>
+</div>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Z2Vub21pY3MlMkNS" data-listing-date-sort="1773201600000" data-listing-file-modified-sort="1773246584974" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="462">
-<div class="thumbnail">
-<p><a href="./posts/2026-03-11-h5ad-download/index.html" class="no-external"></a></p><a href="./posts/2026-03-11-h5ad-download/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2026-03-11-h5ad-download/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2026-03-11-h5ad-download/index.html" class="no-external">h5ad files</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2026-03-11-h5ad-download/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Z2Vub21pY3M='); return false;">
-genomics
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2026-03-11-h5ad-download/index.html" class="no-external">current issues downloading .h5ad files into R</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2026-03-11-h5ad-download/index.html" class="no-external">
-<div class="listing-date">
-Mar 11, 2026
-</div>
-<div class="listing-author">
-Kinnary Shah
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="c3Bvb24lMkNwdWJsaWNhdGlvbg==" data-listing-date-sort="1750392000000" data-listing-file-modified-sort="1766250713421" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="564">
-<div class="thumbnail">
-<p><a href="./posts/2025-06-20-spoon/index.html" class="no-external"></a></p><a href="./posts/2025-06-20-spoon/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/2025-06-20-spoon/hex.png" alt="initial brainstorming"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2025-06-20-spoon/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2025-06-20-spoon/index.html" class="no-external">spoon</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2025-06-20-spoon/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('c3Bvb24='); return false;">
-spoon
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cHVibGljYXRpb24='); return false;">
-publication
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2025-06-20-spoon/index.html" class="no-external">addressing the mean-variance relationship in SRT data</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2025-06-20-spoon/index.html" class="no-external">
-<div class="listing-date">
-Jun 20, 2025
-</div>
-<div class="listing-author">
-Kinnary Shah
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="aGFja2F0aG9u" data-listing-date-sort="1725768000000" data-listing-file-modified-sort="1755535249158" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1040">
-<div class="thumbnail">
-<p><a href="./posts/2024-09-07-biohackathon/index.html" class="no-external"></a></p><a href="./posts/2024-09-07-biohackathon/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/2024-09-07-biohackathon/IMG_4496.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2024-09-07-biohackathon/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-09-07-biohackathon/index.html" class="no-external">biohackathon</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-09-07-biohackathon/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('aGFja2F0aG9u'); return false;">
-hackathon
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-09-07-biohackathon/index.html" class="no-external">detailing my first hackathon experience</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-09-07-biohackathon/index.html" class="no-external">
-<div class="listing-date">
-Sep 8, 2024
-</div>
-<div class="listing-author">
-Kinnary Shah
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="RkRSJTJDZ2Vub21pY3M=" data-listing-date-sort="1714968000000" data-listing-file-modified-sort="1755535249152" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2814">
-<div class="thumbnail">
-<p><a href="./posts/2024-05-06-sim-part-1/index.html" class="no-external"></a></p><a href="./posts/2024-05-06-sim-part-1/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/2024-05-06-sim-part-1/index_files/figure-html/unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2024-05-06-sim-part-1/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-05-06-sim-part-1/index.html" class="no-external">simulations part 1</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-05-06-sim-part-1/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('RkRS'); return false;">
-FDR
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Z2Vub21pY3M='); return false;">
-genomics
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-05-06-sim-part-1/index.html" class="no-external">understanding FDR in a basic differential expression analysis</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-05-06-sim-part-1/index.html" class="no-external">
-<div class="listing-date">
-May 6, 2024
-</div>
-<div class="listing-author">
-Kinnary Shah
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="b3JhbCUyMGV4YW0lMkNzdHVkeWluZw==" data-listing-date-sort="1702616400000" data-listing-file-modified-sort="1755535249152" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1177">
-<div class="thumbnail">
-<p><a href="./posts/2023-12-15-oral-exam/index.html" class="no-external"></a></p><a href="./posts/2023-12-15-oral-exam/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2023-12-15-oral-exam/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2023-12-15-oral-exam/index.html" class="no-external">preliminary oral exam</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2023-12-15-oral-exam/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('b3JhbCUyMGV4YW0='); return false;">
-oral exam
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('c3R1ZHlpbmc='); return false;">
-studying
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2023-12-15-oral-exam/index.html" class="no-external">how I prepared for (and passed!) my preliminary oral exam</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2023-12-15-oral-exam/index.html" class="no-external">
-<div class="listing-date">
-Dec 15, 2023
-</div>
-<div class="listing-author">
-Kinnary Shah
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="UiUyQ3JhbmRvbSUyMHNlZWQ=" data-listing-date-sort="1691553600000" data-listing-file-modified-sort="1755535249151" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="387">
-<div class="thumbnail">
-<p><a href="./posts/2023-08-09-random-seeds/index.html" class="no-external"></a></p><a href="./posts/2023-08-09-random-seeds/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/2023-08-09-random-seeds/index_files/figure-html/unnamed-chunk-2-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2023-08-09-random-seeds/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2023-08-09-random-seeds/index.html" class="no-external">random seeds</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2023-08-09-random-seeds/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cmFuZG9tJTIwc2VlZA=='); return false;">
-random seed
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2023-08-09-random-seeds/index.html" class="no-external">what I learned about random seeds while setting up a simulation</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2023-08-09-random-seeds/index.html" class="no-external">
-<div class="listing-date">
-Aug 9, 2023
-</div>
-<div class="listing-author">
-Kinnary Shah
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

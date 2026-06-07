@@ -4,7 +4,7 @@ title: "Research"
 
 In collaboration with [Dr. Stephanie Hicks](https://www.stephaniehicks.com) and researchers at the Lieber Institute for Brain Development, I am currently working on spatial transcriptomics methods development and data analysis projects.
 
-I recently gave a talk about my project characterizing the dorsal anterior cingulate cortex by integrating spatially-resolved transcriptomics and single-nucleus RNA-sequencing data at the STATGEN conference in May 2025 - pictured below. We recently uploaded this manuscript to [*bioRxiv*](https://www.biorxiv.org/content/10.1101/2025.07.14.664821v1)!
+I recently gave a talk about my project characterizing the dorsal anterior cingulate cortex by integrating spatially-resolved transcriptomics and single-nucleus RNA-sequencing data at the STATGEN conference in May 2025 - pictured below. We recently published this manuscript in [*Cell Reports*](https://doi.org/10.1016/j.celrep.2026.117500)!
 
 ![](images/IMG_5072.jpg){width="100%"}
 
